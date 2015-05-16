@@ -124,10 +124,20 @@ function Player(name, health, strength, speed){
   }
 
   this.takeItem = function (item) {
-    this.getPack().push(item);
-    for (var i = 0; i < this.getPack().length; i++){
-      this.getPack()[i] > 3;
+    if (this.getPack().length < 3){
+      this.getPack().push(item);
     }
+    console.log(this.getPack());
+  }
+
+  this.discardItem = function(item){
+    for (var i = 0; i < this.getPack().length; i++){
+      if (this.getPack()[i] === item){
+        this.getPack().splice(item);
+      }
+        // console.log(this.getPack());
+    }
+    console.log(item);
   }
 }
 
